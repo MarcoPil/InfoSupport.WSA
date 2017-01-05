@@ -1,0 +1,32 @@
+{
+  "version": "1.6.3-*",
+  "authors": [ "Marco Pil" ],
+
+  "dependencies": {
+    "Common": "1.6.0-*",
+    "NETStandard.Library": "1.6.0",
+    "Newtonsoft.Json": "9.0.1",
+    "RabbitMQ.Client": "4.0.2-rc1",
+    "System.Reflection.TypeExtensions": "4.1.0"
+  },
+
+  "frameworks": {
+    "netstandard1.6": {
+      "imports": "dnxcore50"
+    }
+  },
+
+  "packOptions": {
+    "summary": "An event bus on top of RabbitMQ",
+    "tags": [ "event bus", "event driven architecture" ],
+    "owners": [ "Info Support" ],
+    "iconUrl": "http://www.freeiconspng.com/uploads/bus-icon-27.png"
+  },
+
+  "scripts": {
+    "postcompile": [
+      "dotnet pack -o ..\\..\\..\\NuGetPackages --no-build --configuration %compile:Configuration%"
+    ]
+  }
+
+}

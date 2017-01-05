@@ -1,0 +1,51 @@
+version: '2'
+
+services:      
+  kantilever.auditlog.mssql:
+    image: microsoft/mssql-server-linux
+    container_name: kantilever-auditlog-mssql
+    environment:
+      SA_PASSWORD: "Pass_w0rd"
+      ACCEPT_EULA: "Y"
+    networks:
+      - kantilever_auditlog_network
+    ports:
+      - 20010:1433
+    volumes:
+      - "C:/Docker/.auditlogData/db:/var/opt/mssql/"
+
+  kantilever.eventbus:
+    image: rabbitmq:3-management
+    container_name: kantilever-eventbus
+    environment:
+      RABBITMQ_DEFAULT_USER: "Kantilever"
+      RABBITMQ_DEFAULT_PASS: "Kant1lever"
+    networks:
+      - kantilever_eventbus_network
+    ports:
+      - 20000:15672
+
+  kantilever.auditlogservice:
+    image: kantilever.auditlogservice
+    container_name: kantilever-auditlogservice
+    build:
+      context: .
+      dockerfile: AuditlogDockerfile
+    depends_on:
+      - kantilever.eventbus
+      - kantilever.auditlog.mssql
+    environment:
+      AuditLogDatabase: "Server=kantilever-auditlog-mssql;Database=KantileverAuditlog;User Id=sa;Password=Pass_w0rd"
+      eventbus-exchangename: "KantileverBus"
+      eventbus-queuename: "ReplayService"
+      eventbus-hostname: "kantilever-eventbus"
+      eventbus-username: "Kantilever"
+      eventbus-password: "Kant1lever" 
+    networks:
+      - kantilever_auditlog_network
+      - kantilever_eventbus_network
+
+networks:
+  kantilever_eventbus_network: 
+  kantilever_auditlog_network:  
+  
