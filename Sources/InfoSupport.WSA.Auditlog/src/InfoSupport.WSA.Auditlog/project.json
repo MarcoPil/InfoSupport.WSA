@@ -5,11 +5,11 @@
   },
 
   "dependencies": {
-    "InfoSupport.WSA.InfraStructure": "1.6.3",
     "Microsoft.NETCore.App": {
       "type": "platform",
       "version": "1.0.1"
     },
+    "InfoSupport.WSA.InfraStructure": "1.6.3",
     "Microsoft.EntityFrameworkCore": "1.1.0",
     "Microsoft.EntityFrameworkCore.SqlServer": "1.0.1",
     "Microsoft.EntityFrameworkCore.Tools": {

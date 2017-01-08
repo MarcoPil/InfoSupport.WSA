@@ -23,7 +23,8 @@ services:
     networks:
       - kantilever_eventbus_network
     ports:
-      - 20000:15672
+      - 20000:5672
+      - 20001:15672
 
   kantilever.auditlogservice:
     image: kantilever.auditlogservice
