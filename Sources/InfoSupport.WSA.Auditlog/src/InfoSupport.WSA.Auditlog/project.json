@@ -9,7 +9,7 @@
       "type": "platform",
       "version": "1.0.1"
     },
-    "InfoSupport.WSA.InfraStructure": "1.6.3",
+    "InfoSupport.WSA.InfraStructure": "1.6.4",
     "Microsoft.EntityFrameworkCore": "1.1.0",
     "Microsoft.EntityFrameworkCore.SqlServer": "1.0.1",
     "Microsoft.EntityFrameworkCore.Tools": {
@@ -22,7 +22,8 @@
     },
     "Microsoft.Extensions.Configuration": "1.0.0",
     "Microsoft.Extensions.Configuration.FileExtensions": "1.0.0",
-    "Microsoft.Extensions.Configuration.Json": "1.0.0"
+    "Microsoft.Extensions.Configuration.Json": "1.0.0",
+    "InfoSupport.WSA.Auditlog.Shared": "1.0.0-*"
   },
 
   "tools": {
@@ -43,7 +44,7 @@
 
   "scripts": {
     "postcompile": [
-      "dotnet publish --no-build -f netcoreapp1.0 -r debian.8-x64 -c debug -o \"..\\..\\..\\..\\Deliverables\\Auditlog\""
+      "dotnet publish --no-build -f netcoreapp1.0 -r debian.8-x64 -c release -o \"..\\..\\..\\..\\Deliverables\\Auditlog\""
     ]
   }
 }

@@ -9,10 +9,11 @@
     },
     "xunit": "2.2.0-beta4-build3444",
     "dotnet-test-xunit": "2.2.0-preview2-build1029",
-    "InfoSupport.WSA.InfraStructure": "1.6.3",
+    "InfoSupport.WSA.InfraStructure": "1.6.4",
     "InfoSupport.WSA.Auditlog": "1.0.0-*",
     "MoQ": "4.6.38-alpha",
-    "Microsoft.EntityFrameworkCore.InMemory": "1.1.0"
+    "Microsoft.EntityFrameworkCore.InMemory": "1.1.0",
+    "InfoSupport.WSA.Auditlog.Shared": "1.0.0-*"
   },
 
   "frameworks": {

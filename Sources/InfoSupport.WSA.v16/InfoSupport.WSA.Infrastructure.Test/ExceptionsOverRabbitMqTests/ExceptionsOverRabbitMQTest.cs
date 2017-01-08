@@ -8,23 +8,14 @@ using Xunit;
 
 public class ExceptionsOverRabbitMQTest
 {
-    //[Fact]
-    //public void test()
-    //{
-    //    using (var host = new MicroserviceHost<ExceptionThrowingService>())
-    //    using(var proxy = new MicroserviceProxy())
-    //    {
-    //        proxy.Execute()
-    //    }
-    //}
-
     [Fact]
     public void MicroServiceThrowsException()
     {
         // Arrange
         var options = new BusOptions() { QueueName = "ExceptionThrowingTest01" };
-        using (var host = new MicroserviceHost<ExceptionThrowingService>(options))
-        using (var proxy = new MicroserviceProxy(options))
+        var serviceMock = new ExceptionThrowingService();
+        using (var host = new MicroserviceHost<ExceptionThrowingService>(serviceMock, options))
+        using (var proxy = new MicroserviceProxy("ExceptionThrowingTest01", options))
         {
             host.Open();
 

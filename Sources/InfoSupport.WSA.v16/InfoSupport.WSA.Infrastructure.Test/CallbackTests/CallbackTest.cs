@@ -14,7 +14,7 @@ public class CallbackTest
         var options = new BusOptions() { QueueName = "CallbackTest01" };
         var serviceMock = new CallbackMock();
         using (var host = new MicroserviceHost<CallbackMock>(serviceMock, options))
-        using (var proxy = new MicroserviceProxy(options))
+        using (var proxy = new MicroserviceProxy("CallbackTest01", options))
         {
             host.Open();
 
@@ -31,7 +31,7 @@ public class CallbackTest
         var options = new BusOptions() { QueueName = "CallbackTest02" };
         var serviceMock = new CallbackMock();
         using (var host = new MicroserviceHost<CallbackMock>(serviceMock, options))
-        using (var proxy = new MicroserviceProxy(options))
+        using (var proxy = new MicroserviceProxy("CallbackTest02", options))
         {
             host.Open();
 

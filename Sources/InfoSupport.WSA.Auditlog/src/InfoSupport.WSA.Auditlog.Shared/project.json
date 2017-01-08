@@ -1,0 +1,26 @@
+﻿{
+  "version": "1.0.0-*",
+
+  "dependencies": {
+    "NETStandard.Library": "1.6.0",
+    "InfoSupport.WSA.InfraStructure": "1.6.4"
+  },
+
+  "frameworks": {
+    "netstandard1.6": {
+      "imports": "dnxcore50"
+    }
+  },
+
+  "packOptions": {
+    "summary": "Interface types for InfoSupport.WSA.Auditlog",
+    "tags": [ "InfoSupport", "WSA", "Auditlog" ],
+    "owners": [ "Info Support" ]
+  },
+
+  "scripts": {
+    "postcompile": [
+      "dotnet pack -o \"..\\..\\..\\..\\NugetPackages\" --no-build --configuration %compile:Configuration%"
+    ]
+  }
+}

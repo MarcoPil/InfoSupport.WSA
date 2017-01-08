@@ -8,8 +8,12 @@ using System.Threading;
 
 public class MicroserviceProxy : EventBusBase
 {
-    public MicroserviceProxy(BusOptions options = default(BusOptions)) : base(options)
+    public string EndpointName { get; }
+
+    public MicroserviceProxy(string endpointName, BusOptions options = default(BusOptions)) : base(options)
     {
+        EndpointName = endpointName;
+
         try
         {
             Open();
@@ -28,12 +32,11 @@ public class MicroserviceProxy : EventBusBase
 
     public T Execute<T>(object command)
     {
-        Channel.QueueDeclare(queue: BusOptions.QueueName,
+        Channel.QueueDeclare(queue: EndpointName,
                              durable: false, exclusive: false, autoDelete: false, arguments: null);
         var callbackQueueName = Channel.QueueDeclare().QueueName;
         EventWaitHandle responseReceived = new AutoResetEvent(false);
         BasicDeliverEventArgs callback = null;
-//        T result = default(T);
 
         // set metadata
         var props = Channel.CreateBasicProperties();
@@ -44,7 +47,7 @@ public class MicroserviceProxy : EventBusBase
         string message = JsonConvert.SerializeObject(command);
         var buffer = Encoding.UTF8.GetBytes(message);
 
-        //Start Listening for callback
+        // Start Listening for callback
         var consumer = new EventingBasicConsumer(Channel);
         consumer.Received += (object sender, BasicDeliverEventArgs e) =>
         {
@@ -57,7 +60,7 @@ public class MicroserviceProxy : EventBusBase
 
         // Send Command
         Channel.BasicPublish(exchange: "",
-                             routingKey: BusOptions.QueueName,
+                             routingKey: EndpointName,
                              basicProperties: props,
                              body: buffer);
 

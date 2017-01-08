@@ -22,7 +22,7 @@
     "summary": "Support for an event bus on top of RabbitMQ",
     "tags": [ "event bus", "event driven architecture" ],
     "owners": [ "Info Support" ],
-    "iconUrl": "http://www.freeiconspng.com/uploads/bus-icon-27.png",
+    "iconUrl": "http://www.freeiconspng.com/uploads/bus-icon-27.png"
   },
 
   "scripts": {

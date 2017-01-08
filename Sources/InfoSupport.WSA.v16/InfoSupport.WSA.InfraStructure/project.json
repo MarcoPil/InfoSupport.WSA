@@ -1,5 +1,5 @@
 {
-  "version": "1.6.3-*",
+  "version": "1.6.4-*",
   "authors": [ "Marco Pil" ],
 
   "dependencies": {
@@ -25,7 +25,8 @@
 
   "scripts": {
     "postcompile": [
-      "dotnet pack -o ..\\..\\..\\NuGetPackages --no-build --configuration %compile:Configuration%"
+      "dotnet pack -o ..\\..\\..\\NuGetPackages --no-build --configuration %compile:Configuration%",
+      "dotnet pack -o C:\\_localNugetFeed --no-build --configuration %compile:Configuration%"
     ]
   }
 

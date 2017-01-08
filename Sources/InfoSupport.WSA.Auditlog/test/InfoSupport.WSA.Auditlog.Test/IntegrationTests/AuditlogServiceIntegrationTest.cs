@@ -78,7 +78,7 @@ public class AuditlogServiceIntegrationTest
                                     replayerMock.Object);
 
         using (var host = new MicroserviceHost<AuditlogReplayService>(auditlogService, busOptions))
-        using (var proxy = new MicroserviceProxy(busOptions))
+        using (var proxy = new MicroserviceProxy("EndToEndTestQ01", busOptions))
         {
             host.Open();
 
@@ -133,7 +133,7 @@ public class AuditlogServiceIntegrationTest
     public void EndToEndTest()
     {
         DbContextOptions<LoggerContext> dbOptions = CreateNewContextOptions();
-        BusOptions busOptions = new BusOptions() { ExchangeName = "EndToEndTestEx01", QueueName = "EndToEndTestQ01" };
+        BusOptions busOptions = new BusOptions() { ExchangeName = "EndToEndTestEx01", QueueName = "EndToEndTestQ02" };
 
         // Start the Auditlog and ReplayService, using an in-memory database
         var auditlogReplayService = new AuditlogReplayService(
@@ -161,7 +161,7 @@ public class AuditlogServiceIntegrationTest
             // Start replaying events
             var replayBusOptions = new BusOptions() { ExchangeName = "EndToEndTestReplayExchange" };
             using (var eventListener = new ReplayEventReceiverMock(replayBusOptions))
-            using (var proxy = new MicroserviceProxy(busOptions))
+            using (var proxy = new MicroserviceProxy("EndToEndTestQ02", busOptions))
             {
                 eventListener.Open();
 

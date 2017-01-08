@@ -15,7 +15,8 @@ public class MicroserviceHostTest
     [Fact]
     public void MicroserviceHostFindsHandlers()
     {
-        using (var host = new MicroserviceHost<SomeMicroserviceMock>())
+        var serviceMock = new SomeMicroserviceMock();
+        using (var host = new MicroserviceHost<SomeMicroserviceMock>(serviceMock))
         {
             Assert.Equal(2, host.ServiceModel.Handlers.Count());
             Assert.True(host.ServiceModel.Handlers.Contains("InfoSupport.WSA.Infrastructure.Test.dummies.TestCommand"), "TestCommand is not recognized");
@@ -51,7 +52,8 @@ public class MicroserviceHostTest
     public void MicroserviceHostFindsQueueNameInBusOptions()
     {
         var options = new BusOptions { QueueName = "ThrowAwayName" };
-        using (var host = new MicroserviceHost<OtherMicroserviceMock>(options))
+        var service = new OtherMicroserviceMock();
+        using (var host = new MicroserviceHost<OtherMicroserviceMock>(service, options))
         {
             Assert.Equal(1, host.ServiceModel.QueueNames.Count());
             Assert.True(host.ServiceModel.QueueNames.Contains("ThrowAwayName"));
@@ -128,7 +130,8 @@ public class MicroserviceHostTest
         MicroserviceConfigurationException ex =
             Assert.Throws<MicroserviceConfigurationException>(() =>
            {
-               using (var host = new MicroserviceHost<BusOptions>())
+               var randomObject = new Object();
+               using (var host = new MicroserviceHost<Object>(randomObject))
                {
                }
            });

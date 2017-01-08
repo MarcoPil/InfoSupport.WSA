@@ -15,7 +15,7 @@ public class MicroserviceHostAndProxyTest
         var options = new BusOptions() { QueueName = "TestQueue01" };
         var serviceMock = new HalfServiceMock();
         using (var host = new MicroserviceHost<HalfServiceMock>(serviceMock, options))
-        using (var proxy = new MicroserviceProxy(options))
+        using (var proxy = new MicroserviceProxy("TestQueue01", options))
         {
             host.Open();
 
@@ -33,7 +33,7 @@ public class MicroserviceHostAndProxyTest
         var options = new BusOptions() { QueueName = "TestQueue02" };
         var serviceMock = new HalfServiceMock();
         using (var host = new MicroserviceHost<HalfServiceMock>(serviceMock, options))
-        using (var proxy = new MicroserviceProxy(options))
+        using (var proxy = new MicroserviceProxy("TestQueue02", options))
         {
             host.Open();
 

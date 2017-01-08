@@ -15,15 +15,12 @@ namespace InfoSupport.WSA.Infrastructure
     /// </summary>
     /// <typeparam name="T">The type of the implementation of the Microserice</typeparam>
     public class MicroserviceHost<T> : EventBusBase
-        where T: class, new()
     {
         private T _instance;
 
         public ServiceModel<T> ServiceModel { get; private set; }
 
-        public MicroserviceHost() : this(null, null) { }
         public MicroserviceHost(T singletonInstance) : this(singletonInstance, null) { }
-        public MicroserviceHost(BusOptions busOptions) : this(null, busOptions) { }
         public MicroserviceHost(T singletonInstance, BusOptions busOptions) : base(busOptions)
         {
             _instance = singletonInstance;
@@ -121,7 +118,7 @@ namespace InfoSupport.WSA.Infrastructure
 
         private void EventReceived(object sender, BasicDeliverEventArgs e)
         {
-            var instance = _instance ?? new T();    // InstanceContext=Singleton ?? SingleCall
+            var instance = _instance; // only: InstanceContext=Singleton, not yet: InstanceContext=SingleCall
             var eventType = e.BasicProperties.Type;
             var replyTo = e.BasicProperties.ReplyTo;
             var message = Encoding.UTF8.GetString(e.Body);
@@ -139,7 +136,6 @@ namespace InfoSupport.WSA.Infrastructure
                 var props = Channel.CreateBasicProperties();
                 props.ContentType = serviceResponse.ResponseType.ToString();
                 props.Type = serviceResponse.TypeName;
-                //props.ReplyTo = "HEEE";
                 
                 // set payload
                 var responseMessage = JsonConvert.SerializeObject(serviceResponse.Value);

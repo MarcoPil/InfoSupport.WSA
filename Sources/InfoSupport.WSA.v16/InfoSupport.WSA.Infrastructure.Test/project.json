@@ -12,7 +12,7 @@
     "NETStandard.Library": "1.6.0",
     "RabbitMQ.Client": "4.0.2-rc1",
     "Common": "1.6.0-*",
-    "InfoSupport.WSA.InfraStructure": "1.6.0-*"
+    "InfoSupport.WSA.InfraStructure": "1.6.3-*"
   },
 
   "frameworks": {
