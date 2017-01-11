@@ -11,8 +11,8 @@
     "dotnet-test-xunit": "2.2.0-preview2-build1029",
     "NETStandard.Library": "1.6.0",
     "RabbitMQ.Client": "4.0.2-rc1",
-    "Common": "1.6.0-*",
-    "InfoSupport.WSA.InfraStructure": "1.6.3-*"
+    "InfoSupport.WSA.Common": "1.7.0-*",
+    "InfoSupport.WSA.InfraStructure": "1.7.0-*"
   },
 
   "frameworks": {

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Common", "Common\Common.xproj", "{A44DC501-F479-47D2-9BCE-A8568B8D8FCF}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Common", "InfoSupport.WSA.Common\Common.xproj", "{A44DC501-F479-47D2-9BCE-A8568B8D8FCF}"
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Infrastructure", "InfoSupport.WSA.InfraStructure\Infrastructure.xproj", "{76A700A4-F13F-4945-82EA-B53712D8D2AB}"
 EndProject

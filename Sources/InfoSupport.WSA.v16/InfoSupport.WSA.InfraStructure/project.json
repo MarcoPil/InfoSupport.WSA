@@ -1,9 +1,9 @@
 {
-  "version": "1.6.4-*",
+  "version": "1.7.0-*",
   "authors": [ "Marco Pil" ],
 
   "dependencies": {
-    "Common": "1.6.0-*",
+    "InfoSupport.WSA.Common": "1.7.0-*",
     "NETStandard.Library": "1.6.0",
     "Newtonsoft.Json": "9.0.1",
     "RabbitMQ.Client": "4.0.2-rc1",
