@@ -13,12 +13,24 @@ namespace InfoSupport.WSA.Infrastructure
     public class EventDispatcher : EventBusBase
     {
         public DispatcherModel DispatcherModel { get; }
+        private string queueName;
 
         public EventDispatcher(BusOptions options = default(BusOptions)) : base(options)
         {
             DispatcherModel = new DispatcherModel();
             PopulateDispatcherModel();
+
+            try
+            {
+                OpenConnection();
+            }
+            catch(Exception ex)
+            {
+                Dispose();
+                throw ex;
+            }
         }
+
 
         private void PopulateDispatcherModel()
         {
@@ -54,13 +66,13 @@ namespace InfoSupport.WSA.Infrastructure
             }
         }
 
-        public override void Open()
+        private void OpenConnection()
         {
             // Open a RabbitMQ connection
             base.Open();
 
             // Start listening for incomning commands
-            string queueName = BusOptions.QueueName;
+            queueName = BusOptions.QueueName;
             if (queueName == null)
             {
                 queueName = Channel.QueueDeclare().QueueName;
@@ -85,7 +97,10 @@ namespace InfoSupport.WSA.Infrastructure
                                       routingKey: routingKey);
                 }
             }
+        }
 
+        public override void Open()
+        {
             var consumer = new EventingBasicConsumer(Channel);
             consumer.Received += EventReceived;
 
