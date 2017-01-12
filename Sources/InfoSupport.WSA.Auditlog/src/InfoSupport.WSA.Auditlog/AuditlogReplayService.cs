@@ -22,7 +22,7 @@ namespace InfoSupport.WSA.Logging
             _replayer = replayer;
         }
 
-        public void ReplayEvents(ReplayEventsCommand replayEventsCommand)
+        public ReplayResult ReplayEvents(ReplayEventsCommand replayEventsCommand)
         {
             Console.WriteLine("Replay request received");
 
@@ -36,19 +36,21 @@ namespace InfoSupport.WSA.Logging
 
             var entries = _logRepo.FindEntriesBy(criteria);
 
-            Console.Write("Replaying {0} events ", entries.Count());
+            Console.Write("Start replaying events ");
 
             _replayer.ExchangeName = replayEventsCommand.ExchangeName;
             _replayer.Start();
+            long count = 0;
             foreach (var entry in entries)
             {
                 Console.Write(".");
                 _replayer.ReplayLogEntry(entry);
-                Thread.Sleep(5);
+                count++;
             }
             Console.WriteLine();
-            Console.WriteLine("Done replaying events.");
+            Console.WriteLine($"Finished replaying {count} events.");
             _replayer.Stop();
+            return new ReplayResult { Count = count };
         }
     }
 }

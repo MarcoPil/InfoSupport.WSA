@@ -1,9 +1,9 @@
 ﻿{
-  "version": "1.0.0-*",
+  "version": "1.0.1-*",
 
   "dependencies": {
     "NETStandard.Library": "1.6.0",
-    "InfoSupport.WSA.InfraStructure": "1.6.4"
+    "InfoSupport.WSA.InfraStructure": "1.7.1"
   },
 
   "frameworks": {

@@ -1,0 +1,5 @@
+FROM microsoft/dotnet:1.0.1-core
+ENTRYPOINT ["dotnet", "InfoSupport.WSA.Auditlog.dll"]
+ARG source=./Auditlog
+WORKDIR /app
+COPY $source .

@@ -41,10 +41,11 @@ public class AuditlogServiceTest
 
         // Act
         ReplayEventsCommand replayCommand = new ReplayEventsCommand() { ExchangeName = "AuditlogServiceTestExchange01" };
-        target.ReplayEvents(replayCommand);
+        ReplayResult result = target.ReplayEvents(replayCommand);
 
         // Assert
         Assert.Equal(logEntries, reproducedEvents);
         replayerMock.VerifySet(replayer => replayer.ExchangeName = "AuditlogServiceTestExchange01");
+        Assert.Equal(3, result.Count);
     }
 }

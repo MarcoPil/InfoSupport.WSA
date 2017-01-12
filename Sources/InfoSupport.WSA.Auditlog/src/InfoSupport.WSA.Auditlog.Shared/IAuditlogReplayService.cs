@@ -6,6 +6,6 @@ namespace InfoSupport.WSA.Logging
     [Microservice]
     public interface IAuditlogReplayService
     {
-        void ReplayEvents(ReplayEventsCommand replayEventsCommand);
+        ReplayResult ReplayEvents(ReplayEventsCommand replayEventsCommand);
     }
 }

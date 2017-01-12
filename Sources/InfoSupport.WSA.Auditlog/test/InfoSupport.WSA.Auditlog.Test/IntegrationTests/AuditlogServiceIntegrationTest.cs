@@ -40,7 +40,7 @@ public class AuditlogServiceIntegrationTest
                 pub2.Publish(new Name2Event() { Name = "pub2" });
             }
 
-            Thread.Sleep(1000);
+            Thread.Sleep(100);
         }
 
         // Assert
@@ -109,7 +109,7 @@ public class AuditlogServiceIntegrationTest
         {
             eventListener.Open();
 
-            Thread.Sleep(1000);
+            Thread.Sleep(100);
 
             replayer.ExchangeName = "ReplayerReplaysEvents";
             replayer.Start();
@@ -119,7 +119,7 @@ public class AuditlogServiceIntegrationTest
             }
             replayer.Stop();
 
-            Thread.Sleep(1000);
+            Thread.Sleep(100);
 
             Assert.Equal(4, eventListener.ReceivedEvents.Count());
             Assert.Equal("IntegrationTest.Pub1.Number1Event", eventListener.ReceivedEvents[0].RoutingKey);
@@ -156,7 +156,7 @@ public class AuditlogServiceIntegrationTest
             }
 
             // wait until all events have been logged
-            Thread.Sleep(100);
+            Thread.Sleep(400);
 
             // Start replaying events
             var replayBusOptions = new BusOptions() { ExchangeName = "EndToEndTestReplayExchange" };
@@ -172,14 +172,14 @@ public class AuditlogServiceIntegrationTest
                 Thread.Sleep(100);
 
                 Assert.Equal(4, eventListener.ReceivedEvents.Count());
-                Assert.Equal("IntegrationTest.Pub1.Number1Event", eventListener.ReceivedEvents[0].RoutingKey);
-                Assert.Equal("IntegrationTest.Pub2.Number2Event", eventListener.ReceivedEvents[1].RoutingKey);
-                Assert.Equal("IntegrationTest.Pub1.Name1Event", eventListener.ReceivedEvents[2].RoutingKey);
-                Assert.Equal("IntegrationTest.Pub2.Name2Event", eventListener.ReceivedEvents[3].RoutingKey);
-                Assert.Equal("InfoSupport.WSA.Logging.Test.IntegrationTests.Dummies.Number1Event", eventListener.ReceivedEvents[0].GetType().FullName);
-                Assert.Equal("InfoSupport.WSA.Logging.Test.IntegrationTests.Dummies.Number2Event", eventListener.ReceivedEvents[1].GetType().FullName);
-                Assert.Equal("InfoSupport.WSA.Logging.Test.IntegrationTests.Dummies.Name1Event", eventListener.ReceivedEvents[2].GetType().FullName);
-                Assert.Equal("InfoSupport.WSA.Logging.Test.IntegrationTests.Dummies.Name2Event", eventListener.ReceivedEvents[3].GetType().FullName);
+                Assert.True(eventListener.ReceivedEvents.Any(evt => evt.RoutingKey == "IntegrationTest.Pub1.Number1Event"));
+                Assert.True(eventListener.ReceivedEvents.Any(evt => evt.RoutingKey == "IntegrationTest.Pub2.Number2Event"));
+                Assert.True(eventListener.ReceivedEvents.Any(evt => evt.RoutingKey == "IntegrationTest.Pub1.Name1Event"));
+                Assert.True(eventListener.ReceivedEvents.Any(evt => evt.RoutingKey == "IntegrationTest.Pub2.Name2Event"));
+                Assert.True(eventListener.ReceivedEvents.Any(evt => evt.GetType().FullName == "InfoSupport.WSA.Logging.Test.IntegrationTests.Dummies.Number1Event"));
+                Assert.True(eventListener.ReceivedEvents.Any(evt => evt.GetType().FullName == "InfoSupport.WSA.Logging.Test.IntegrationTests.Dummies.Number2Event"));
+                Assert.True(eventListener.ReceivedEvents.Any(evt => evt.GetType().FullName == "InfoSupport.WSA.Logging.Test.IntegrationTests.Dummies.Name1Event"));
+                Assert.True(eventListener.ReceivedEvents.Any(evt => evt.GetType().FullName == "InfoSupport.WSA.Logging.Test.IntegrationTests.Dummies.Name2Event"));
             }
         }
     }
