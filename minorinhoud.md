@@ -1,5 +1,10 @@
 #Continuous Delivery in Large Complex Software Systems
-##.NET minor 2017
+.NET minor 2017
+> Het bouwen van grote complexe software systemen (denk aan de administratie van een verzekeringsmaatschappij of de website en backoffice van een grote webwinkel) geeft veel uitdagingen. Hoe ontwikkelen we binnen tijd en budget, terwijl we het geheel niet goed kunnen overzien? Hoe zorgen we er voor dat er fouten in de code komen? En misschien wel de belangrijkste uitdaging: hoe zorgen we ervoor dat het systeem flexibel goenoeg is om zich aan te passen aan een veranderende wereld en veranderende klantwensen?
+Dit vraagt een specifieke aanpak. In deze minor ligt de focus op continuous delivery. Het idee daarbij is om in een kort-cyclisch proces steeds een klein stukje van het systeem van idee tot productie te brengen. Belangrijk hierbij is dat de meeste stappen in het proces (build, test, deploy) geautomatiseerd kunnen worden.
+In deze minor leer je hoe je zo'n proces kunt realiseren. We kijken daarbij naar alle aspecten. Je leert welke procesmethodieken en welke architecturen zich hier voor lenen. Je krijgt diepgaande kennis van de frameworks en tools die je daarbij kunnen ondersteunen. Je wordt vaardig in Test Driven Development en leert de deployment te automatiseren.
+
+##
 ###Overzicht
 * Proces
  * Scrum: agile, iteratief, incrementeel
@@ -40,12 +45,15 @@
  * Practice what you preach
  * Fouten maken mag (en er van leren ook)
 
+De minor is opgebouwd uit drie blokken. Daarin gaan we incrementeel en iteratief te werk.
+In het eerst blok leer je al om een (in potentie) grote applicatie van voorkant tot achterkant te bouwen. Je krijgt diepgaande kennis van C# en het .NET framework en krijgt basiskennis van de andere onderdelen die je nodig hebt.
+In het tweede blok gaan we die basiskennis verdiepen en hebben we ook veel aandacht voor de architectuur en het teamwerk. Aan het eind van dit blok, heb je alle kennis om grote complexe systemen in een continuous delivery proces te realiseren.
+In het derde blok zetten we de puntje op de i en verhogen we je vaardigheid in continuous delivery en hebben we aandacht voor geadvanceerde onderwerpen en automatisering van het proces.
 
-
-* Continuous Delivery
-* Scrum
-* Story Mapping
-* User stories schrijven
+###Frameworks & Technieken
+* Architectuur & Ontwerp
+ * Onion Architecture
+ * Repository pattern
 * Specificaties schrijven
  * Gherkin
  * Specflow
@@ -62,4 +70,5 @@
     * Swagger / Swahbuckle
   * Entity Framework Core
 * Deployment
- * Docker
+ * docker
+ * docker-compose
