@@ -45,11 +45,16 @@ In deze minor leer je hoe je zo'n proces kunt realiseren. We kijken daarbij naar
   * Practice what you preach
   * Fouten maken mag (en er van leren ook)
 
-## opbouw
+## Opbouw
 De minor is opgebouwd uit drie blokken. Daarin gaan we incrementeel en iteratief te werk.
+
 In **blok 1** leer je al om een (in potentie) grote applicatie van voorkant tot achterkant te bouwen. Je krijgt diepgaande kennis van C# en het .NET framework en krijgt basiskennis van de andere onderdelen die je nodig hebt.
+
 In **blok 2** gaan we die basiskennis verdiepen en hebben we ook veel aandacht voor de architectuur en het teamwerk. Aan het eind van dit blok, heb je alle kennis om grote complexe systemen in een continuous delivery proces te realiseren.
+
 In **blok 3** zetten we de puntje op de i en verhogen we je vaardigheid in continuous delivery en hebben we aandacht voor geadvanceerde onderwerpen en automatisering van het proces. Aan het eind van dit blok ben je in staat om met een serieus development team een _Continuous Delivery_ process op te zetten en daarmee een groot complex software systeem te ontwikkelen.
+
+Elk blok wordt afgeloten met een toets en een case.
 
 ##Frameworks & Technieken
 * Architectuur & Ontwerp
