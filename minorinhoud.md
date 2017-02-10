@@ -66,10 +66,10 @@ In **blok 3** zetten we de puntje op de i en verhogen we je vaardigheid in conti
   * C#
   * LINQ
   * .NET core
-    * ASP.NET Core
-      * MVC
+  * ASP.NET Core
+    * MVC
     * Web API
-      * Swagger / Swahbuckle
+      * Swagger / Swashbuckle
   * Entity Framework Core
   * Logging
 * Deployment
