@@ -1,6 +1,7 @@
 #Continuous Delivery in Large Complex Software Systems
 .NET minor 2017
 > Het bouwen van grote complexe software systemen (denk aan de administratie van een verzekeringsmaatschappij of de website en backoffice van een grote webwinkel) geeft veel uitdagingen. Hoe ontwikkelen we binnen tijd en budget, terwijl we het geheel niet goed kunnen overzien? Hoe zorgen we er voor dat er fouten in de code komen? En misschien wel de belangrijkste uitdaging: hoe zorgen we ervoor dat het systeem flexibel goenoeg is om zich aan te passen aan een veranderende wereld en veranderende klantwensen?
+
 Dit vraagt een specifieke aanpak. In deze minor ligt de focus op continuous delivery. Het idee daarbij is om in een kort-cyclisch proces steeds een klein stukje van het systeem van idee tot productie te brengen. Belangrijk hierbij is dat de meeste stappen in het proces (build, test, deploy) geautomatiseerd kunnen worden.
 In deze minor leer je hoe je zo'n proces kunt realiseren. We kijken daarbij naar alle aspecten. Je leert welke procesmethodieken en welke architecturen zich hier voor lenen. Je krijgt diepgaande kennis van de frameworks en tools die je daarbij kunnen ondersteunen. Je wordt vaardig in Test Driven Development en leert de deployment te automatiseren.
 
