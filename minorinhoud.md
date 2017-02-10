@@ -7,43 +7,43 @@ In deze minor leer je hoe je zo'n proces kunt realiseren. We kijken daarbij naar
 
 ### Overzicht
 * Proces
- * Scrum: agile, iteratief, incrementeel
- * Reduce waste (YAGNI): bouw alleen het hoogst noodzakelijke
+  * Scrum: agile, iteratief, incrementeel
+  * Reduce waste (YAGNI): bouw alleen het hoogst noodzakelijke
 * Architectuur
- * Service Oriented Architecture
- * Web Scale Architecture
-  * Microservices
-  * Event Driven Architecture
-  * Eventual Consistency
-  * CQRS
-  * Domain driven design
-  * Event sourcing
+  * Service Oriented Architecture
+  * Web Scale Architecture
+    * Microservices
+    * Event Driven Architecture
+    * Eventual Consistency
+    * CQRS
+    * Domain driven design
+    * Event sourcing
 * Van idee naar specificatie
- * Story Mapping
- * Goede User Stories schrijven
- * Specification by Example
- * Event Storming
+  * Story Mapping
+  * Goede User Stories schrijven
+  * Specification by Example
+  * Event Storming
 * Van specificatie naar implementatie
- * Test Driven Development
- * C#
- * .NET Core
- * RabbitMQ
- * SQL Server
- * Angular2
+  * Test Driven Development
+  * C#
+  * .NET Core
+  * RabbitMQ
+  * SQL Server
+  * Angular2
 * Van implementatie naar productie
- * Docker
- * OTAP
+  * Docker
+  * OTAP
 * Tools
- * Visual Studio
- * GIT
- * Nuget
- * TFS
- * TFS Build Automation
- * Docker
+  * Visual Studio
+  * GIT
+  * Nuget
+  * TFS
+  * TFS Build Automation
+  * Docker
 * Principes
- * Shu Ha Ri
- * Practice what you preach
- * Fouten maken mag (en er van leren ook)
+  * Shu Ha Ri
+  * Practice what you preach
+  * Fouten maken mag (en er van leren ook)
 
 ## opbouw
 De minor is opgebouwd uit drie blokken. Daarin gaan we incrementeel en iteratief te werk.
@@ -53,26 +53,26 @@ In **blok 3** zetten we de puntje op de i en verhogen we je vaardigheid in conti
 
 ##Frameworks & Technieken
 * Architectuur & Ontwerp
- * Web Scale Architecture
- * Onion Architecture
- * Dependency Injection
+  * Web Scale Architecture
+  * Onion Architecture
+  * Dependency Injection
 * Specificaties schrijven
- * Gherkin
- * Specflow
+  * Gherkin
+  * Specflow
 * Test Driven Development
- * mstest / xunit
- * MoQ
+  * mstest / xunit
+  * MoQ
 * .NET Development
- * C#
- * LINQ
- * .NET core
-  * ASP.NET Core
-   * MVC
-   * Web API
-    * Swagger / Swahbuckle
+  * C#
+  * LINQ
+  * .NET core
+    * ASP.NET Core
+      * MVC
+    * Web API
+      * Swagger / Swahbuckle
   * Entity Framework Core
   * Logging
 * Deployment
- * dotnet publish
- * docker
- * docker-compose
+  * dotnet publish
+  * docker
+  * docker-compose
